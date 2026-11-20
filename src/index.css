@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  /* PT. Binco Global Nusantara — Global Executive Dark-Navy, Emerald & Gold Palette */
+  --color-binco-abyss: #040F1E;
+  --color-binco-midnight: #07172C;
+  --color-binco-steel: #0B1F3A;
+  --color-binco-raised: #102A4C;
+  --color-binco-emerald: #10B981;
+  --color-binco-emerald-deep: #059669;
+  --color-binco-lime: #84CC16;
+  --color-binco-gold: #D4AF37;
+  --color-binco-gold-light: #E8CA64;
+
+  --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: #040F1E;
+    color: #F1F5F9;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Deep Executive Navy Ambient Depth */
+.bg-navy-executive {
+  background-color: #040F1E;
+  background-image:
+    radial-gradient(60% 45% at 88% 0%, rgba(16, 185, 129, 0.12), transparent 68%),
+    radial-gradient(55% 45% at 10% 15%, rgba(212, 175, 55, 0.09), transparent 68%);
+}
+
+/* Alternating Midnight Navy Band */
+.bg-navy-midnight {
+  background-color: #07172C;
+  background-image:
+    radial-gradient(55% 40% at 15% 0%, rgba(16, 185, 129, 0.1), transparent 70%),
+    radial-gradient(50% 45% at 90% 100%, rgba(212, 175, 55, 0.08), transparent 70%);
+}
+
+/* Technical Dark Blueprint Dot Grid */
+.bg-navy-grid {
+  background-color: #051326;
+  background-image:
+    radial-gradient(rgba(212, 175, 55, 0.14) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+/* Subtle Hero Slide Slow Pan */
+@keyframes slowZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.06);
+  }
+}
+
+.animate-hero-zoom {
+  animation: slowZoom 12s ease-out forwards;
+}
+
+/* Print Stylesheet for Downloadable Company Profile PDF */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #071A2F !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only-profile {
+    position: static !important;
+    overflow: visible !important;
+    max-height: none !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
